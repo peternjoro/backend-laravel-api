@@ -9,11 +9,11 @@
 
 ## Container Description
 
-This is a Dockerized Laravel API built using the following containers:
+This is a Dockerized Laravel API built using the following:
 
 - **Laravel v10.11.0**
 
-- **PHP Application**
+- **PHP**
 
     `PHP8.1-fpm, Composer, NPM, Node.js v14.x`
 
