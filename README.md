@@ -7,59 +7,75 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Container Description
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This is a Dockerized Laravel API built using the following containers:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Laravel v10.11.0**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **PHP Application**
 
-## Learning Laravel
+    `PHP8.1-fpm, Composer, NPM, Node.js v14.x`
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **MySQL**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+    The API is using [`db 4free`](https://db4free.net/) online MySQl database
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    To use a local MySQl database,
+###
+    1. Install a local php server, e.g WAMP, MAMP & LAMP
+    2. Create a database named news_app
+    3. Import the sql_dump file inside back/ folder
+    4. In the project folder, open the .env file and update the database credentials
 
-## Laravel Sponsors
+- **Nginx**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    [`Nginx Official Image`](https://hub.docker.com/_/nginx/)
 
-### Premium Partners
+## Getting started
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Prerequisites:
 
-## Contributing
+- Docker Engine (v19.03.0+)
+- Docker Compose
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+You can either: 
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop) (includes both Docker Engine and Docker Compose)
 
-## Code of Conduct
+OR
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Install [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) separately.
 
-## Security Vulnerabilities
+## Starting the containers
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1. Clone the repository 
+
+2. Open your terminal inside the project directory
+
+3. Install all composer packages included in composer.json
+    ```
+    $ composer install
+    ```
+4. Install all npm packages included in package.json
+    ```
+    $ npm install
+    ```
+5. Generate a Laravel App Key.
+    ```
+    $ php artisan key:generate
+    ```
+6. With your terminal inside the root directory of the project, execute the following command to bring all the containers up.
+   ```
+    $ docker-compose up -d
+    ```
+7. To access the API, visit http://localhost:8000, this will however be used by the web client, the index page is the dfault page from Laravel.
+
+## Stopping the containers
+
+1. Bring all the containers down.
+    ```
+    $ docker-compose down
+    ```
 
 ## License
 
