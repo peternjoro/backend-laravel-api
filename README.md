@@ -21,7 +21,7 @@ This is a Dockerized Laravel API built using the following:
 
     The API is using [`db 4free`](https://db4free.net/) online MySQl database
 ### To use a local MySQl database:
-    1. Install a local php server, e.g WAMP, MAMP & LAMP
+    1. Install a local php server, e.g WAMP, MAMP & LAMP, with a minimum PHP v8.1
     2. Create a database named news_app
     3. Import the sql_dump file inside backup/ folder
     4. In the project folder, open the .env file and update the database credentials
